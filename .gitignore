@@ -2,3 +2,11 @@ config.js
 node_modules/
 .git/
 notes.js
+.firebase/
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
+package-lock.json
+server.js
+storage.rules

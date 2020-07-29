@@ -5,7 +5,7 @@ const passAsker = document.getElementById('passAsker');
 const infoScreen = document.getElementById('infoScreen');
 const newQuestion = document.getElementById('newQuestion');
 const newResponse = document.getElementById('newResponse');
-
+console.log('functions ok');
 export function addNewEntry() {
   if (newQuestion.value !== '' && newResponse.value !== '') {
     const newEntry = {question: newQuestion.value, response: newResponse.value}
