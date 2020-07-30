@@ -1,4 +1,4 @@
-import { configs } from '../config.js';
+import { configs } from '/config.js';
 //import { addNewEntry, copyToClipboardMsg } from './functions.js';
 const allDivs = document.getElementById('container');
 const passInput = document.getElementById('passInput');
@@ -6,10 +6,11 @@ const passAsker = document.getElementById('passAsker');
 const infoScreen = document.getElementById('infoScreen');
 const downLeft = document.getElementById('downLeft');
 const downRight = document.getElementById('downRight');
-const checkingPass = document.getElementById('passInput').addEventListener("change", checkPass);
-const sendNewEntry = document.getElementById('sendNew').addEventListener('click', addNewEntry);
-const haste1Listen = document.getElementById('haste1').addEventListener('click', copyHaste);
+//const checkingPass = document.getElementById('passInput').addEventListener("change", checkPass);
+//const sendNewEntry = document.getElementById('sendNew').addEventListener('click', addNewEntry);
+//const haste1Listen = document.getElementById('haste1').addEventListener('click', copyHaste);
 let allData = null;
+console.log('scripts, c', configs);
 /*
 function copyHaste(elem) {
   const targetDiv = document.getElementById(elem.target.id);
@@ -82,7 +83,7 @@ function checkPass(pass) {
 window.onload = (()=> {
   const allDivs = document.getElementById('container');
   allDivs.classList.add('invis');
-  console.log('configs: ', configs);
+//  console.log('configs: ', configs);
   // even listeners for hastes
   /*
   const allHastes = document.getElementsByClassName('hastes')
