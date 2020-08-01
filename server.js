@@ -1,4 +1,4 @@
-"use strict";
+/* just in case here is server too... prolly not needed in this..
 const process = require ('./config.js');
 const express = require("express");
 const bodyParser = require('body-parser');
@@ -7,6 +7,7 @@ const pasw = process.env.SECRET2;
 app.use(express.static('public'));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+*/
 /*
 // database access:
 const mongoose = require('mongoose');
@@ -27,10 +28,12 @@ const entryModel = mongoose.model('ot2model', entrySchema );
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 */
 // GET handler
+/*
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
   console.log('got get');
 });
+*/
 // POST handlers
 // show all entries
 /*
@@ -78,6 +81,8 @@ app.post('/addNew', (request, response) => {
 
 });
 */
+/*
 const listener = app.listen(5599, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
+*/

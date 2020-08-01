@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <main>
       <div id= "passAsker">
         <center>
         Password please:<br>
@@ -18,12 +18,8 @@
       </div>
       <div id= "infoScreen" class= "redText">
       </div>
-    </header>
-    <main>
-      index at public
       <div id= "container">
         <div id= "upLeft" class= "invis">
-          Hae kysymyksistä: <input type= "text"><input type= "button" id= "searchQ" value= "searchQ">
         </div>
         <div id= "downLeft">
           Pika vastaukset, kiire tilanteisiin:
@@ -32,11 +28,9 @@
           <p id= "haste2" class= "hastes">Tutkin asian, hetkinen</p>
           <p id= "haste3" class= "hastes">Pahoittelut että tässä kestään, tutkin tätä vielä</p>
           <p id= "haste4" class= "hastes">Kiitos edelleen kärsivällisyydestänne, tutkin tätä vielä</p>
-             Asiakkaan kysymykset:`;
           <span class= "otsikko">Kysymykset:</span><br>
         </div>
         <div id= "upRight" class= "invis">
-          Hae vastauksista: <input type= "text"><input type= "button" id= "searchR" value= "searchR">
         </div>
         <div id= "downRight">
 
@@ -53,38 +47,8 @@
     <base href="https://noteshelp-5e3c0.firebaseapp.com/">--><!--
     <script type="text/javascript" src="https://noteHelp.firebaseapp.com/runtime.a66f828dca56eeb90e02.js"></script>
     <script type="text/javascript" src="https://noteHelp.firebaseapp.com/main.2eb2046276073df361f7.js"></script>-->
-    <script type= "module" src= "script.js">
-/*      import { configs } from '../config.js';
-      console.log('scripts');
-      const allDivs = document.getElementById('container');
-      const passInput = document.getElementById('passInput');
-      const passAsker = document.getElementById('passAsker');
-      const infoScreen = document.getElementById('infoScreen');
-      const downLeft = document.getElementById('downLeft');
-      const downRight = document.getElementById('downRight');
-      //const checkingPass = document.getElementById('passInput').addEventListener("change", checkPass);
-      //const sendNewEntry = document.getElementById('sendNew').addEventListener('click', addNewEntry);
-      //const haste1Listen = document.getElementById('haste1').addEventListener('click', copyHaste);
-      let allData = null;
-      console.log('scripts');
-
-      window.onload = (()=> {
-        const allDivs = document.getElementById('container');
-        allDivs.classList.add('invis');
-        console.log('onload: ', configs);
-        // even listeners for hastes
-        /*
-        const allHastes = document.getElementsByClassName('hastes')
-        console.log('all hastes', allHastes);
-        for (let i = 0; i < allHastes.length; i++) {
-          allHastes[i].addEventListener('click', copyHaste);
-        }
-        */
-        //allHastes.forEach( (aH, idx) => {
-        //  aH.addEventListener('click', copyHaste);
-        //});
-//      });
-
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script type= "module" src= "script.js"></script>
   </body>
 </html>
