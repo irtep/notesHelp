@@ -7,13 +7,13 @@
   padding: 10px;
 }
 body {
-  color: orange;
+  color: black;
   text-shadow: 0 0 4px #FFF
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: DarkTurquoise;
-  background-image: linear-gradient(navy, blue, dodgerBlue);
+  background-image: linear-gradient(orange, white, white);
 }
 #container {
   /*
@@ -64,18 +64,19 @@ input[type=button]:hover {
   cursor: pointer;
 }
 .clickable {
-  border: solid 1px white;
-  border-radius: 5px;
-  background-color: blue;
+  border: solid 3px crimson;
+  border-radius: 2px;
+  background-color: white;
+  color: black;
   margin: 8px;
   padding: 1px;
   font-weight: bold;
 }
 .clickable:hover {
   cursor: pointer;
-  color: black;
-  background: white;
-  transition: 1s;
+  color: crimson;
+  background: black;
+  transition: 2s;
 }
 .hastes {
   border: 2px solid black;
