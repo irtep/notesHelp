@@ -44,49 +44,59 @@ export function showData(clickedElement) {
 }
 
 export function addNewEntry() {
-  if (newQuestion.value !== '' && newResponse.value !== '') {
-    const newEntry = {question: newQuestion.value, response: newResponse.value}
-    db.collection("helpFiles").doc().set({
-      question: newQuestion.value,
-      response: newResponse.value
-    });
-    newQuestion.value = '';
-    newResponse.value = '';
-    infoScreen.innerHTML = 'uusi tieto tallennettu. virkistä selain niin se näkyy listassa.';
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-    	infoScreen.innerHTML = "";
-    }, 9000);
-    /*
-    function sMbuttonClicked() {
-      if (messageLine.value !== '') {
-        const freshMsg = sendMessage(myChat.myName, messageLine.value);
-        messageLine.value = '';
-        myChat.messages.push(freshMsg);
-        console.log('sending, docrefid...', myChat);
-        db.collection('chats').doc(myChat.docRefId).update({
-          messages: myChat.messages
-        });
+  firebase.auth().signInAnonymously().catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log('logging: ', errorCode, errorMessage);
+  // ...
+  });
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (newQuestion.value !== '' && newResponse.value !== '') {
+      const newEntry = {question: newQuestion.value, response: newResponse.value}
+      db.collection("helpFiles").doc().set({
+        question: newQuestion.value,
+        response: newResponse.value
+      });
+      newQuestion.value = '';
+      newResponse.value = '';
+      infoScreen.innerHTML = 'uusi tieto tallennettu. virkistä selain niin se näkyy listassa.';
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+      	infoScreen.innerHTML = "";
+      }, 9000);
+
+      /*
+      function sMbuttonClicked() {
+        if (messageLine.value !== '') {
+          const freshMsg = sendMessage(myChat.myName, messageLine.value);
+          messageLine.value = '';
+          myChat.messages.push(freshMsg);
+          console.log('sending, docrefid...', myChat);
+          db.collection('chats').doc(myChat.docRefId).update({
+            messages: myChat.messages
+          });
+        }
       }
+      */
+      /*
+      const pack = JSON.stringify(newEntry);
+      const http = new XMLHttpRequest();
+      const url = '/addNew';
+      let params = 'MSG=' + pack;
+
+      http.open('POST', url, true);
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      http.onreadystatechange = () => {
+        //console.log('sending champ: ', params);
+      }
+      http.send(params);
+      newQuestion.value = '';
+      newResponse.value = '';
     }
     */
-    /*
-    const pack = JSON.stringify(newEntry);
-    const http = new XMLHttpRequest();
-    const url = '/addNew';
-    let params = 'MSG=' + pack;
-
-    http.open('POST', url, true);
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = () => {
-      //console.log('sending champ: ', params);
     }
-    http.send(params);
-    newQuestion.value = '';
-    newResponse.value = '';
-  }
-  */
-  }
+  });
 }
 
 // this will be copy to clipboard mechanism:
