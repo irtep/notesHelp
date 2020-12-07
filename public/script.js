@@ -15,22 +15,32 @@ export const db = firebase.firestore();
 export let allData = [];
 //console.log('scripts');
 // check database and add the questions
-db.collection("helpFiles").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().question} => ${doc.data().response}`);
-        // add entry to allData
-        const newEntry = {id: doc.id, question: doc.data().question, response: doc.data().response};
-        allData.push(newEntry);
-        console.log('allData: ', allData);
-        // add question to page
-        downLeft.innerHTML += `<p id= ${doc.id} class= "clickable">${doc.data().question}</p>`;
-        // add event listener to this
-        const elements = document.getElementsByClassName('clickable');
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].addEventListener('click', showData, false);
-        }
-    });
-    infoScreen.innerHTML = 'database valmis!'
+firebase.auth().signInAnonymously().catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log('logging: ', errorCode, errorMessage);
+// ...
+});
+firebase.auth().onAuthStateChanged(function(user) {
+  db.collection("helpFiles").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          //console.log(`${doc.id} => ${doc.data().question} => ${doc.data().response}`);
+          // add entry to allData
+          const newEntry = {id: doc.id, question: doc.data().question, response: doc.data().response};
+
+          allData.push(newEntry);
+          //console.log('allData: ', allData);
+          // add question to page
+          downLeft.innerHTML += `<p id= ${doc.id} class= "clickable">${doc.data().question}</p>`;
+          // add event listener to this
+          const elements = document.getElementsByClassName('clickable');
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', showData, false);
+          }
+      });
+      infoScreen.innerHTML = 'database valmis!'
+  });
 });
 
 window.onload = (()=> {
